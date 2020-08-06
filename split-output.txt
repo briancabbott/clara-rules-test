@@ -1,0 +1,264 @@
+brian@BRIANs-MacBook-Pro:~/dev_space/TaxBit/ledger-docs/_dev/BCA/clara-rules-test$ lein run 
+Java HotSpot(TM) 64-Bit Server VM warning: Options -Xverify:none and -noverify were deprecated in JDK 13 and will likely be removed in a future release.
+WARN ignoring checkouts directory /Users/brian/dev_space/GitHub-clojure-land/lib2/clojure as it does not contain a project.clj file.
+ BCA-DBG -> INTO: build-rule
+   - name: is-important
+   - body: ("Find important support requests." [MyFirstRecordOne (> num 5)] [MyFirstRecordTwo (> num 15)] => (println "Rules are over 5 and 15!"))
+   - form-meta: {:line 7, :column 1}
+BCA-DBG -> INTO: split-lhs-rhs
+   - rule-body: ([MyFirstRecordOne (> num 5)] [MyFirstRecordTwo (> num 15)] => (println "Rules are over 5 and 15!"))
+BCA-DBG -> INTO: seperator?
+   -x? [MyFirstRecordOne (> num 5)]
+BCA-DBG -> INTO: seperator?
+   -x? [MyFirstRecordTwo (> num 15)]
+BCA-DBG -> INTO: seperator?
+   -x? =>
+BCA-DBG -> INTO: parse-rule*
+BCA-DBG -> INTO: seperator?
+   -x? [MyFirstRecordOne (> num 5)]
+BCA-DBG -> INTO: seperator?
+   -x? [MyFirstRecordTwo (> num 15)]
+BCA-DBG -> INTO: seperator?
+   -x? =>
+   - lhs: clojure.lang.LazySeq@7e7b0356
+   - rhs: (do (println "Rules are over 5 and 15!"))
+   - properties:
+   - env: {}
+   - rule-meta: {:line 7, :column 1}
+BCA-DBG -> INTO: parse-expression
+   - expression [MyFirstRecordOne (> num 5)]
+   - expr-meta {:line 7, :column 1}
+BCA-DBG -> INTO: parse-condition-or-accum
+   - condition: [MyFirstRecordOne (> num 5)]
+   - expr-meta: {:line 7, :column 1}
+BCA-DBG -> INTO: construct-condition
+   - condition: [MyFirstRecordOne (> num 5)]
+   - result-binding:
+   - expr-meta: {:line 7, :column 1}
+BCA-DBG -> INTO: parse-expression
+   - expression [MyFirstRecordTwo (> num 15)]
+   - expr-meta {:line 7, :column 1}
+BCA-DBG -> INTO: parse-condition-or-accum
+   - condition: [MyFirstRecordTwo (> num 15)]
+   - expr-meta: {:line 7, :column 1}
+BCA-DBG -> INTO: construct-condition
+   - condition: [MyFirstRecordTwo (> num 15)]
+   - result-binding:
+   - expr-meta: {:line 7, :column 1}
+BCA-DBG -> INTO: destructuring-syms
+   - args:
+   - condition: {:type MyFirstRecordOne, :constraints [(> num 5)]}
+BCA-DBG -> INTO: resolve-vars
+   - form: {:type MyFirstRecordOne, :constraints [(> num 5)]}
+   - env:
+BCA-DBG -> INTO: maybe-qualify
+   - env:
+   - sym: :type
+BCA-DBG -> INTO: qualify-meta
+   - env:
+   - sym: :type
+BCA-DBG -> INTO: maybe-qualify
+   - env:
+   - sym: MyFirstRecordOne
+BCA-DBG -> INTO: qualify-meta
+   - env:
+   - sym: MyFirstRecordOne
+BCA-DBG -> INTO: maybe-qualify
+   - env:
+   - sym: [:type MyFirstRecordOne]
+BCA-DBG -> INTO: qualify-meta
+   - env:
+   - sym: [:type MyFirstRecordOne]
+BCA-DBG -> INTO: maybe-qualify
+   - env:
+   - sym: :constraints
+BCA-DBG -> INTO: qualify-meta
+   - env:
+   - sym: :constraints
+BCA-DBG -> INTO: maybe-qualify
+   - env:
+   - sym: >
+BCA-DBG -> INTO: qualify-meta
+   - env:
+   - sym: >
+BCA-DBG -> INTO: maybe-qualify
+   - env:
+   - sym: num
+BCA-DBG -> INTO: qualify-meta
+   - env:
+   - sym: num
+BCA-DBG -> INTO: maybe-qualify
+   - env:
+   - sym: 5
+BCA-DBG -> INTO: qualify-meta
+   - env:
+   - sym: 5
+BCA-DBG -> INTO: maybe-qualify
+   - env:
+   - sym: (> num 5)
+BCA-DBG -> INTO: qualify-meta
+   - env:
+   - sym: (> num 5)
+BCA-DBG -> INTO: maybe-qualify
+   - env:
+   - sym: [(> num 5)]
+BCA-DBG -> INTO: qualify-meta
+   - env:
+   - sym: [(> num 5)]
+BCA-DBG -> INTO: maybe-qualify
+   - env:
+   - sym: [:constraints [(> num 5)]]
+BCA-DBG -> INTO: qualify-meta
+   - env:
+   - sym: [:constraints [(> num 5)]]
+BCA-DBG -> INTO: maybe-qualify
+   - env:
+   - sym: {:type MyFirstRecordOne, :constraints [(> num 5)]}
+BCA-DBG -> INTO: qualify-meta
+   - env:
+   - sym: {:type MyFirstRecordOne, :constraints [(> num 5)]}
+BCA-DBG -> INTO: destructuring-syms
+   - args:
+   - condition: {:type MyFirstRecordTwo, :constraints [(> num 15)]}
+BCA-DBG -> INTO: resolve-vars
+   - form: {:type MyFirstRecordTwo, :constraints [(> num 15)]}
+   - env:
+BCA-DBG -> INTO: maybe-qualify
+   - env:
+   - sym: :type
+BCA-DBG -> INTO: qualify-meta
+   - env:
+   - sym: :type
+BCA-DBG -> INTO: maybe-qualify
+   - env:
+   - sym: MyFirstRecordTwo
+BCA-DBG -> INTO: qualify-meta
+   - env:
+   - sym: MyFirstRecordTwo
+BCA-DBG -> INTO: maybe-qualify
+   - env:
+   - sym: [:type MyFirstRecordTwo]
+BCA-DBG -> INTO: qualify-meta
+   - env:
+   - sym: [:type MyFirstRecordTwo]
+BCA-DBG -> INTO: maybe-qualify
+   - env:
+   - sym: :constraints
+BCA-DBG -> INTO: qualify-meta
+   - env:
+   - sym: :constraints
+BCA-DBG -> INTO: maybe-qualify
+   - env:
+   - sym: >
+BCA-DBG -> INTO: qualify-meta
+   - env:
+   - sym: >
+BCA-DBG -> INTO: maybe-qualify
+   - env:
+   - sym: num
+BCA-DBG -> INTO: qualify-meta
+   - env:
+   - sym: num
+BCA-DBG -> INTO: maybe-qualify
+   - env:
+   - sym: 15
+BCA-DBG -> INTO: qualify-meta
+   - env:
+   - sym: 15
+BCA-DBG -> INTO: maybe-qualify
+   - env:
+   - sym: (> num 15)
+BCA-DBG -> INTO: qualify-meta
+   - env:
+   - sym: (> num 15)
+BCA-DBG -> INTO: maybe-qualify
+   - env:
+   - sym: [(> num 15)]
+BCA-DBG -> INTO: qualify-meta
+   - env:
+   - sym: [(> num 15)]
+BCA-DBG -> INTO: maybe-qualify
+   - env:
+   - sym: [:constraints [(> num 15)]]
+BCA-DBG -> INTO: qualify-meta
+   - env:
+   - sym: [:constraints [(> num 15)]]
+BCA-DBG -> INTO: maybe-qualify
+   - env:
+   - sym: {:type MyFirstRecordTwo, :constraints [(> num 15)]}
+BCA-DBG -> INTO: qualify-meta
+   - env:
+   - sym: {:type MyFirstRecordTwo, :constraints [(> num 15)]}
+  **Let-Binding:
+   - conditions: [{:type MyFirstRecordOne, :constraints [(> num 5)]} {:type MyFirstRecordTwo, :constraints [(> num 15)]}]
+   - rule: {:ns-name (quote clara-rules-test.parent-rules-split-ns.rules), :lhs (quote [{:type MyFirstRecordOne, :constraints [(> num 5)]} {:type MyFirstRecordTwo, :constraints [(> num 15)]}]), :rhs (quote (do (println "Rules are over 5 and 15!")))}
+   - symbols: #{num MyFirstRecordTwo do > println MyFirstRecordOne}
+   - matching-env: {}
+ BCA-DBG -> INTO: production-name
+   - production-name: is-important
+ BCA-DBG -> INTO: qualified-keyword?
+   - x:is-important
+BCA-DBG -> INTO: defsession
+   - name: rule-session-def
+   - sources-and-options: ((quote clara-rules-test.parent-rules-split-ns.rule-records) (quote clara-rules-test.parent-rules-split-ns.rules))
+"split-rules-runner"
+BCA-DBG -> INTO: mk-session
+   - sources-and-options: [clara-rules-test.parent-rules-split-ns.rule-records clara-rules-test.parent-rules-split-ns.rules]
+BCA-DBG -> INTO: IRuleSource
+   - sym:
+clara-rules-test.parent-rules-split-ns.rule-records
+BCA-DBG -> INTO: IRuleSource
+   - sym:
+clara-rules-test.parent-rules-split-ns.rules
+"   - sources: [clara-rules-test.parent-rules-split-ns.rule-records clara-rules-test.parent-rules-split-ns.rules]"
+   - options: {}
+   - productions: #{{:ns-name clara-rules-test.parent-rules-split-ns.rules, :lhs [{:type MyFirstRecordOne, :constraints [(> num 5)]} {:type MyFirstRecordTwo, :constraints [(> num 15)]}], :rhs (do (println "Rules are over 5 and 15!")), :name "clara-rules-test.parent-rules-split-ns.rules/is-important", :doc "Find important support requests."}}
+mk-session*
+finished 1
+finished 2
+finished 3
+finished 4
+finished 5
+finished 6
+beta-graph:
+{:forward-edges {0 #{1}, 1 #{2}, 2 #{3}},
+ :backward-edges {1 #{0}, 2 #{1}, 3 #{2}},
+ :id-to-condition-node
+ {0 :clara.rules.compiler/root-condition,
+  1
+  {:node-type :join,
+   :condition {:type MyFirstRecordOne, :constraints [(> num 5)]},
+   :new-bindings #{},
+   :used-bindings #{},
+   :join-bindings #{}},
+  2
+  {:node-type :join,
+   :condition {:type MyFirstRecordTwo, :constraints [(> num 15)]},
+   :new-bindings #{},
+   :used-bindings #{},
+   :join-bindings #{}}},
+ :id-to-production-node
+ {3
+  {:node-type :production,
+   :production
+   {:ns-name clara-rules-test.parent-rules-split-ns.rules,
+    :lhs
+    [{:type MyFirstRecordOne, :constraints [(> num 5)]}
+     {:type MyFirstRecordTwo, :constraints [(> num 15)]}],
+    :rhs (do (println "Rules are over 5 and 15!")),
+    :name "clara-rules-test.parent-rules-split-ns.rules/is-important",
+    :doc "Find important support requests."},
+   :bindings #{}}},
+ :id-to-new-bindings {1 #{}, 2 #{}, 3 #{}}}
+alpha-graph:
+[{:id 4,
+  :condition {:type MyFirstRecordOne, :constraints [(> num 5)]},
+  :beta-children (1)}
+ {:id 5,
+  :condition {:type MyFirstRecordTwo, :constraints [(> num 15)]},
+  :beta-children (2)}]
+Syntax error (ClassNotFoundException) compiling at (/private/var/folders/r5/jwrdzd7x70jb9886vw33jt480000gn/T/form-init16477189271001986132.clj:1:126).
+MyFirstRecordOne
+
+Full report at:
+/var/folders/r5/jwrdzd7x70jb9886vw33jt480000gn/T/clojure-13530291902422632093.edn
