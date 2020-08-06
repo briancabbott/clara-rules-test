@@ -1,0 +1,201 @@
+brian@BRIANs-MacBook-Pro:~/dev_space/TaxBit/ledger-docs/_dev/BCA/clara-rules-test-gh$ lein run
+Java HotSpot(TM) 64-Bit Server VM warning: Options -Xverify:none and -noverify were deprecated in JDK 13 and will likely be removed in a future release.
+WARN ignoring checkouts directory /Users/brian/dev_space/GitHub-clojure-land/lib2/clojure as it does not contain a project.clj file.
+BCA-DBG -> INTO: defsession
+   - name: rule-session-def
+   - sources-and-options: ((quote clara-rules-test.explicit-def.exp-def/explicit) (quote clara-rules-test.parent-rules-split-ns.rule-records))
+BCA-DBG -> INTO: mk-session
+   - sources-and-options: [clara-rules-test.explicit-def.exp-def/explicit clara-rules-test.parent-rules-split-ns.rule-records]
+BCA-DBG -> INTO: IRuleSource
+   - sym:
+clara-rules-test.explicit-def.exp-def/explicit
+BCA-DBG -> INTO: IRuleSource
+   - sym:
+clara-rules-test.parent-rules-split-ns.rule-records
+"   - sources: [clara-rules-test.explicit-def.exp-def/explicit clara-rules-test.parent-rules-split-ns.rule-records]"
+   - options: {}
+   - productions: #{{:doc "Find important support requests.", :name "clara-rules-test.explicit-def.exp-def/is-important", :lhs [{:type clara_rules_test.parent_rules_split_ns.rule_records.MyFirstRecordOne, :constraints [(> num 5)]} {:type clara_rules_test.parent_rules_split_ns.rule_records.MyFirstRecordTwo, :constraints [(> num 15)]}], :rhs (println "Rules are over 5 and 15!")}}
+mk-session*
+finished 1
+finished 2
+finished 3
+finished 4
+finished 5
+finished 6
+beta-graph:
+{:forward-edges {0 #{1}, 1 #{2}, 2 #{3}},
+ :backward-edges {1 #{0}, 2 #{1}, 3 #{2}},
+ :id-to-condition-node
+ {0 :clara.rules.compiler/root-condition,
+  1
+  {:node-type :join,
+   :condition
+   {:type
+    clara_rules_test.parent_rules_split_ns.rule_records.MyFirstRecordOne,
+    :constraints [(> num 5)]},
+   :new-bindings #{},
+   :used-bindings #{},
+   :join-bindings #{}},
+  2
+  {:node-type :join,
+   :condition
+   {:type
+    clara_rules_test.parent_rules_split_ns.rule_records.MyFirstRecordTwo,
+    :constraints [(> num 15)]},
+   :new-bindings #{},
+   :used-bindings #{},
+   :join-bindings #{}}},
+ :id-to-production-node
+ {3
+  {:node-type :production,
+   :production
+   {:doc "Find important support requests.",
+    :name "clara-rules-test.explicit-def.exp-def/is-important",
+    :lhs
+    [{:type
+      clara_rules_test.parent_rules_split_ns.rule_records.MyFirstRecordOne,
+      :constraints [(> num 5)]}
+     {:type
+      clara_rules_test.parent_rules_split_ns.rule_records.MyFirstRecordTwo,
+      :constraints [(> num 15)]}],
+    :rhs (println "Rules are over 5 and 15!")},
+   :bindings #{}}},
+ :id-to-new-bindings {1 #{}, 2 #{}, 3 #{}}}
+alpha-graph:
+[{:id 4,
+  :condition
+  {:type
+   clara_rules_test.parent_rules_split_ns.rule_records.MyFirstRecordOne,
+   :constraints [(> num 5)]},
+  :beta-children (1)}
+ {:id 5,
+  :condition
+  {:type
+   clara_rules_test.parent_rules_split_ns.rule_records.MyFirstRecordTwo,
+   :constraints [(> num 15)]},
+  :beta-children (2)}]
+BCA-DBG: INTO => effective-type
+   - type:  clara_rules_test.parent_rules_split_ns.rule_records.MyFirstRecordOne
+   - (symbol? type):  true
+   -  (name type):  clara_rules_test.parent_rules_split_ns.rule_records.MyFirstRecordOne
+BCA-DBG: INTO => effective-type
+   - type:  clara_rules_test.parent_rules_split_ns.rule_records.MyFirstRecordTwo
+   - (symbol? type):  true
+   -  (name type):  clara_rules_test.parent_rules_split_ns.rule_records.MyFirstRecordTwo
+finished 6.1
+finished 7
+finished 8
+finished 9
+finished 10
+finished 11
+finished 12
+finished 13
+finished 14
+finished 15
+finished 16
+finished 17
+BCA-DBG: INTO => effective-type
+   - type:  clara_rules_test.parent_rules_split_ns.rule_records.MyFirstRecordOne
+   - (symbol? type):  true
+   -  (name type):  clara_rules_test.parent_rules_split_ns.rule_records.MyFirstRecordOne
+BCA-DBG: INTO => effective-type
+   - type:  clara_rules_test.parent_rules_split_ns.rule_records.MyFirstRecordTwo
+   - (symbol? type):  true
+   -  (name type):  clara_rules_test.parent_rules_split_ns.rule_records.MyFirstRecordTwo
+finished 18
+finished 19
+finished 20
+Rules are over 5 and 15!
+"  let binding complete"
+{:rule-matches
+ {{:doc "Find important support requests.",
+   :name "clara-rules-test.explicit-def.exp-def/is-important",
+   :lhs
+   [{:type
+     clara_rules_test.parent_rules_split_ns.rule_records.MyFirstRecordOne,
+     :constraints [(> num 5)]}
+    {:type
+     clara_rules_test.parent_rules_split_ns.rule_records.MyFirstRecordTwo,
+     :constraints [(> num 15)]}],
+   :rhs (println "Rules are over 5 and 15!")}
+  ()},
+ :query-matches {},
+ :condition-matches
+ {{:type
+   clara_rules_test.parent_rules_split_ns.rule_records.MyFirstRecordOne,
+   :constraints [(> num 5)]}
+  ({:rule-name "fist rule", :num 30}),
+  {:type
+   clara_rules_test.parent_rules_split_ns.rule_records.MyFirstRecordTwo,
+   :constraints [(> num 15)]}
+  ({:rule-name "second", :num 345})},
+ :insertions
+ {{:doc "Find important support requests.",
+   :name "clara-rules-test.explicit-def.exp-def/is-important",
+   :lhs
+   [{:type
+     clara_rules_test.parent_rules_split_ns.rule_records.MyFirstRecordOne,
+     :constraints [(> num 5)]}
+    {:type
+     clara_rules_test.parent_rules_split_ns.rule_records.MyFirstRecordTwo,
+     :constraints [(> num 15)]}],
+   :rhs (println "Rules are over 5 and 15!")}
+  ()},
+ :fact->explanations nil}
+[{:type :add-facts,
+  :node nil,
+  :token nil,
+  :facts
+  ({:rule-name "fist rule", :num 30} {:rule-name "second", :num 345})}
+ {:type :alpha-activate, :facts ({:rule-name "fist rule", :num 30})}
+ {:type :right-activate,
+  :node-id 1,
+  :elements ({:fact {:rule-name "fist rule", :num 30}, :bindings {}})}
+ {:type :left-activate,
+  :node-id 2,
+  :tokens
+  ({:matches [[{:rule-name "fist rule", :num 30} 1]], :bindings {}})}
+ {:type :alpha-activate, :facts ({:rule-name "second", :num 345})}
+ {:type :right-activate,
+  :node-id 2,
+  :elements ({:fact {:rule-name "second", :num 345}, :bindings {}})}
+ {:type :left-activate,
+  :node-id 3,
+  :tokens
+  ({:matches
+    [[{:rule-name "fist rule", :num 30} 1]
+     [{:rule-name "second", :num 345} 2]],
+    :bindings {}})}
+ {:type :add-activations,
+  :node-id 3,
+  :tokens
+  ({:matches
+    [[{:rule-name "fist rule", :num 30} 1]
+     [{:rule-name "second", :num 345} 2]],
+    :bindings {}})}
+ {:type :fire-activation,
+  :activation
+  {:node
+   {:id 3,
+    :production
+    {:doc "Find important support requests.",
+     :name "clara-rules-test.explicit-def.exp-def/is-important",
+     :lhs
+     [{:type
+       clara_rules_test.parent_rules_split_ns.rule_records.MyFirstRecordOne,
+       :constraints [(> num 5)]}
+      {:type
+       clara_rules_test.parent_rules_split_ns.rule_records.MyFirstRecordTwo,
+       :constraints [(> num 15)]}],
+     :rhs (println "Rules are over 5 and 15!")},
+    :rhs
+    #object[user$eval8262$PN_3_AE__8267 0x5d94c50e "user$eval8262$PN_3_AE__8267@5d94c50e"]},
+   :token
+   {:matches
+    [[{:rule-name "fist rule", :num 30} 1]
+     [{:rule-name "second", :num 345} 2]],
+    :bindings {}}},
+  :resulting-operations
+  {:unconditional-insertions [],
+   :logical-insertions [],
+   :rhs-retractions []}}]
